@@ -6,16 +6,17 @@ using namespace std;
 int nPanini, peso[10007], memo[10007];
 
 int dp(int panAtt, int last){	//indice panino attuale, indice ultimo mangiato
-	if (panAtt == nPanini)
+	if (panAtt == nPanini)	// limit check
 		return 0;
 
 	int sePrendo = -1, seNonPrendo;
 
-	if (peso[panAtt] < peso[last]){
+	if (peso[panAtt] < peso[last]){ // if I can take this panino
 		if (memo[panAtt] != -1)
 			sePrendo = memo[panAtt];
 		else
-			sePrendo = memo[panAtt] = dp (panAtt+1, panAtt)+1;
+			memo[panAtt] = dp (panAtt+1, panAtt)+1;
+			sePrendo = memo[panAtt];
 	}
 
 	seNonPrendo = dp (panAtt+1, last);
