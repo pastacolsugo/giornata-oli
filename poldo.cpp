@@ -5,7 +5,7 @@ using namespace std;
 
 int nPanini, peso[10007], memo[10007];
 
-int dp (int panAtt, int last){	//indice panino attuale, indice ultimo mangiato
+int dp(int panAtt, int last){	//indice panino attuale, indice ultimo mangiato
 	if (panAtt == nPanini)
 		return 0;
 
@@ -23,7 +23,7 @@ int dp (int panAtt, int last){	//indice panino attuale, indice ultimo mangiato
 	return max(sePrendo, seNonPrendo);
 }
 
-int main (void) {
+int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 	memset (memo, -1, sizeof memo);
